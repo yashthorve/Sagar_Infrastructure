@@ -51,6 +51,32 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // --- Dynamic Logo Swapping ---
+    const logoSubtextHeader = document.getElementById('logo-subtext-header');
+    const interiorsSection = document.querySelector('.interiors-section');
+    
+    if (logoSubtextHeader && interiorsSection) {
+        const logoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    logoSubtextHeader.style.opacity = '0';
+                    setTimeout(() => {
+                        logoSubtextHeader.textContent = 'INTERIORS';
+                        logoSubtextHeader.style.opacity = '1';
+                    }, 150);
+                } else {
+                    logoSubtextHeader.style.opacity = '0';
+                    setTimeout(() => {
+                        logoSubtextHeader.textContent = 'INFRASTRUCTURE';
+                        logoSubtextHeader.style.opacity = '1';
+                    }, 150);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        logoObserver.observe(interiorsSection);
+    }
+
     // --- Lightbox ---
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');

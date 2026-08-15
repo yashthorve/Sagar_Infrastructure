@@ -213,7 +213,7 @@ h1, h2, h3, h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    background: linear-gradient(rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.6) 100%);
 }
 .hero-content {
     position: relative;
@@ -691,6 +691,9 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
+    .about, .services-section, .portfolio, .why-us, .contact {
+        padding: 80px 0;
+    }
     .nav-links, .nav-cta {
         display: none;
     }
