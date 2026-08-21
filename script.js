@@ -142,3 +142,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Form Handling
+const quoteForm = document.getElementById("quote-form");
+if (quoteForm) {
+    quoteForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const submitBtn = document.getElementById("submit-btn");
+        const errorMsg = document.getElementById("form-error");
+        
+        // Basic phone validation for Indian numbers
+        const phoneInput = document.getElementById("phone").value;
+        if (!/^[0-9]{10}$/.test(phoneInput)) {
+            errorMsg.textContent = "Please enter a valid 10-digit phone number.";
+            errorMsg.style.display = "block";
+            return;
+        }
+        
+        submitBtn.classList.add("is-loading");
+        errorMsg.style.display = "none";
+        
+        try {
+            const formData = new FormData(quoteForm);
+            const response = await fetch(quoteForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+            
+            if (response.ok) {
+                quoteForm.style.display = "none";
+                document.getElementById("form-success").style.display = "flex";
+            } else {
+                const data = await response.json();
+                if (Object.hasOwn(data, "errors")) {
+                    errorMsg.textContent = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    errorMsg.textContent = "Oops! There was a problem submitting your form";
+                }
+                errorMsg.style.display = "block";
+            }
+        } catch (error) {
+            errorMsg.textContent = "Oops! There was a problem submitting your form";
+            errorMsg.style.display = "block";
+        } finally {
+            submitBtn.classList.remove("is-loading");
+        }
+    });
+}
+
+// Advanced Animations & Parallax
+const parallaxElements = document.querySelectorAll(".parallax-bg, .division");
+window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY;
+    parallaxElements.forEach(el => {
+        const limit = el.offsetTop + el.offsetHeight;
+        if (scrolled > el.offsetTop - window.innerHeight && scrolled <= limit) {
+            el.style.backgroundPositionY = (scrolled - el.offsetTop) * 0.15 + "px";
+        }
+    });
+});
+
+// Magnetic Buttons
+const magneticBtns = document.querySelectorAll(".magnetic-btn, .submit-btn");
+magneticBtns.forEach(btn => {
+    btn.addEventListener("mousemove", function(e) {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener("mouseleave", function() {
+        btn.style.transform = "translate(0px, 0px)";
+    });
+});
+

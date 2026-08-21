@@ -271,7 +271,7 @@ h1, h2, h3, h4 {
 
 /* --- ABOUT --- */
 .about {
-    padding: 150px 0;
+    padding: 80px 0;
 }
 .about-grid {
     display: grid;
@@ -371,7 +371,7 @@ h1, h2, h3, h4 {
 
 /* --- SERVICES (CONSTRUCTION & INTERIORS) --- */
 .services-section {
-    padding: 150px 0;
+    padding: 80px 0;
 }
 .interiors-section {
     background-color: var(--clr-bg-alt);
@@ -468,7 +468,7 @@ h1, h2, h3, h4 {
 
 /* --- PORTFOLIO --- */
 .portfolio {
-    padding: 150px 0;
+    padding: 80px 0;
 }
 .masonry-gallery {
     display: grid;
@@ -588,7 +588,7 @@ h1, h2, h3, h4 {
 
 /* --- WHY US --- */
 .why-us {
-    padding: 150px 0;
+    padding: 80px 0;
     background-color: var(--clr-bg-alt);
 }
 .qualities-list {
@@ -622,7 +622,7 @@ h1, h2, h3, h4 {
 
 /* --- CONTACT --- */
 .contact {
-    padding: 150px 0;
+    padding: 80px 0;
 }
 .contact-header {
     text-align: center;
@@ -788,3 +788,37 @@ h1, h2, h3, h4 {
         background-color: var(--clr-text) !important;
     }
 }
+/* --- CONTACT FORM & SPLIT LAYOUT --- */
+.contact-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+.contact-details { display: flex; flex-direction: column; gap: 40px; padding-right: 40px; border-right: 1px solid rgba(0,0,0,0.1); }
+.quote-form { display: flex; flex-direction: column; gap: 30px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.form-group { position: relative; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(0,0,0,0.2); padding: 10px 0; font-family: var(--font-ui); font-size: 1rem; color: var(--clr-text); transition: border-color 0.3s; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-bottom-color: var(--clr-accent); }
+.form-group label { position: absolute; left: 0; top: 10px; font-family: var(--font-ui); font-size: 1rem; color: var(--clr-text-light); transition: 0.3s ease all; pointer-events: none; }
+.form-group input:focus ~ label, .form-group input:not(:placeholder-shown) ~ label, .form-group textarea:focus ~ label, .form-group textarea:not(:placeholder-shown) ~ label { top: -15px; font-size: 0.8rem; color: var(--clr-accent); }
+.submit-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--clr-accent); color: #fff; padding: 15px 40px; border: none; cursor: pointer; font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; transition: transform 0.3s, box-shadow 0.3s; align-self: flex-start; }
+.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230,43,43,0.3); }
+.btn-spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.is-loading .btn-text { opacity: 0.7; }
+.is-loading .btn-spinner { display: inline-block; }
+.form-error-msg { color: var(--clr-accent); font-size: 0.9rem; margin-top: 10px; }
+.form-success-state { text-align: center; padding: 40px; background-color: var(--clr-bg-alt); border-radius: 4px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.continue-whatsapp-btn { display: inline-block; margin-top: 15px; padding: 12px 30px; border: 1px solid var(--clr-text); color: var(--clr-text); text-decoration: none; text-transform: uppercase; font-family: var(--font-display); letter-spacing: 1px; transition: 0.3s; }
+.continue-whatsapp-btn:hover { background-color: var(--clr-text); color: #fff; }
+@media (max-width: 768px) { .contact-split { grid-template-columns: 1fr; gap: 40px; } .contact-details { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; } .form-row { grid-template-columns: 1fr; } }
+
+/* --- FLOATING CALL BUTTON --- */
+.floating-call-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: var(--clr-accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(230,43,43,0.4); z-index: 90; text-decoration: none; transition: transform 0.3s; animation: pulse 2s infinite; }
+.floating-call-btn:hover { transform: scale(1.1); animation: none; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(230,43,43,0.7); } 70% { box-shadow: 0 0 0 15px rgba(230,43,43,0); } 100% { box-shadow: 0 0 0 0 rgba(230,43,43,0); } }
+
+/* --- PREMIUM ANIMATIONS & PARALLAX --- */
+.parallax-bg { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+.reveal-mask { position: relative; overflow: hidden; }
+.reveal-mask img { transform: scale(1.1); transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-mask.in-view img { transform: scale(1); }
+.magnetic-btn { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+
