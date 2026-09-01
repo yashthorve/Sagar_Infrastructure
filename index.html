@@ -386,11 +386,15 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper fade-in-up" style="transition-delay: 0.2s;">
-                    <!-- NOTE TO DEV: Replace 'YOUR_FORM_ID_HERE' with your actual Formspree endpoint ID -->
-                    <form id="quote-form" class="quote-form" action="https://formspree.io/f/xaewvylg" method="POST">
-                        <input type="hidden" name="_subject" value="New Lead: Request for Quote">
-                        <!-- Formspree honeypot to prevent spam -->
-                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <!-- NOTE TO DEV: Replace 'YOUR_ACCESS_KEY_HERE' with your actual Web3Forms Access Key -->
+                    <!-- Get your free key at: https://web3forms.com/ -->
+                    <form id="quote-form" class="quote-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="66e60b10-ad60-4659-a1d7-3fc6e462189b">
+                        <input type="hidden" name="subject" value="New Lead from Sagar Infrastructure Website">
+                        <input type="hidden" name="from_name" value="Sagar Infrastructure Website">
+                        
+                        <!-- Web3Forms honeypot to prevent spam -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="form-row">
                             <div class="form-group">
