@@ -164,6 +164,15 @@ if (quoteForm) {
         
         try {
             const formData = new FormData(quoteForm);
+            
+            // Capture UTM parameters from URL if they exist
+            const urlParams = new URLSearchParams(window.location.search);
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+                if (urlParams.has(param)) {
+                    formData.append(param, urlParams.get(param));
+                }
+            });
+            
             const response = await fetch(quoteForm.action, {
                 method: "POST",
                 body: formData,
