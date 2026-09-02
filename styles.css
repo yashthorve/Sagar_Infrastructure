@@ -113,15 +113,15 @@ h1, h2, h3, h4 {
     display: block;
     width: 120px;
 }
-.logo-svg {
+.logo-img {
     width: 100%;
     height: auto;
     color: var(--clr-text); /* Black text on transparent nav */
 }
-.navbar.scrolled .logo-svg {
+.navbar.scrolled .logo-img {
     color: var(--clr-text);
 }
-.hero .navbar:not(.scrolled) .logo-svg {
+.hero .navbar:not(.scrolled) .logo-img {
     color: #fff; /* White logo when over hero image */
 }
 .nav-links {
@@ -684,7 +684,7 @@ h1, h2, h3, h4 {
 .footer-logo {
     width: 120px;
 }
-.footer-logo .logo-svg {
+.footer-logo .logo-img {
     color: #fff;
 }
 .footer-nav {
@@ -821,4 +821,7 @@ h1, h2, h3, h4 {
 .reveal-mask img { transform: scale(1.1); transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-mask.in-view img { transform: scale(1); }
 .magnetic-btn { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-
+
+
+
+.contact-header .section-desc { margin-left: auto; margin-right: auto; text-align: center; }
