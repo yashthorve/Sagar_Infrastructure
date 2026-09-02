@@ -113,15 +113,15 @@ h1, h2, h3, h4 {
     display: block;
     width: 120px;
 }
-.logo-img {
+.logo-svg {
     width: 100%;
     height: auto;
     color: var(--clr-text); /* Black text on transparent nav */
 }
-.navbar.scrolled .logo-img {
+.navbar.scrolled .logo-svg {
     color: var(--clr-text);
 }
-.hero .navbar:not(.scrolled) .logo-img {
+.hero .navbar:not(.scrolled) .logo-svg {
     color: #fff; /* White logo when over hero image */
 }
 .nav-links {
@@ -684,7 +684,7 @@ h1, h2, h3, h4 {
 .footer-logo {
     width: 120px;
 }
-.footer-logo .logo-img {
+.footer-logo .logo-svg {
     color: #fff;
 }
 .footer-nav {
